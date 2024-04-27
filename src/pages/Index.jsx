@@ -26,8 +26,8 @@ const Index = () => {
       return;
     }
 
-    // Simulate fetching an answer (in a real scenario, this would call an API)
-    setAnswer("This is a simulated answer. Implement API call for real data.");
+    // Simulate fetching an answer from Google (in a real scenario, this would use Google Search API)
+    setAnswer("This is a simulated answer as if searched from Google. Implement API call for real data.");
   };
 
   return (
