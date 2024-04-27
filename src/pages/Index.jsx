@@ -1,11 +1,12 @@
 // Complete the Index page component here
 // Use chakra-ui
 import React from "react";
-import { Box, Container, Input, Button, Text, VStack, useToast } from "@chakra-ui/react";
+import { Box, Container, Input, Button, Text, VStack, useToast, useColorMode } from "@chakra-ui/react";
 import { FaRobot } from "react-icons/fa";
 
 const Index = () => {
   const toast = useToast();
+  const { colorMode, toggleColorMode } = useColorMode();
   const [question, setQuestion] = React.useState("");
   const [answer, setAnswer] = React.useState("");
 
@@ -38,7 +39,7 @@ const Index = () => {
           </Text>
         </Box>
         <Input placeholder="Type your question here..." value={question} onChange={handleQuestionChange} />
-        <Button colorScheme="blue" onClick={fetchAnswer}>
+        <Button colorScheme="blue" onClick={fetchAnswer} mr={4}>
           Get Answer
         </Button>
         {answer && (
@@ -46,6 +47,14 @@ const Index = () => {
             <Text>{answer}</Text>
           </Box>
         )}
+        <Button
+          onClick={() => {
+            const newColorMode = colorMode === "light" ? "dark" : "light";
+            toggleColorMode();
+          }}
+        >
+          Toggle Dark Mode
+        </Button>
       </VStack>
     </Container>
   );
